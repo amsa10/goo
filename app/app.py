@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
+import zipfile
+import os
 
 app = Flask(__name__)
 
@@ -37,4 +39,4 @@ def generate():
         return render_template('index.html', user_input=user_input, generated_text=generated_text)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=80)
