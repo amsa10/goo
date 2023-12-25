@@ -1,3 +1,3 @@
 # test
 
-docker build -t gpt2-flask-app .
+docker build -t qa-app .
