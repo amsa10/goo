@@ -5,7 +5,7 @@ import torch
 app = Flask(__name__)
 
 # Load the fine-tuned GPT-2 model
-model_path = "/content/gpt2-jeopardy-fine-tuned/checkpoint-20000"
+model_path = "model/trained/checkpoint-20000"
 model = GPT2LMHeadModel.from_pretrained(model_path)
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
