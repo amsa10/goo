@@ -4,8 +4,18 @@ import torch
 
 app = Flask(__name__)
 
+# Load the  model
+# Path to the ZIP file
+zip_file_path = "model/trained.zip"
+# Directory where the model will be extracted
+extraction_dir = "model/trained"
+
+# Extract the contents of the ZIP file
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    zip_ref.extractall(extraction_dir)
+
 # Load the fine-tuned GPT-2 model
-model_path = "model/trained/checkpoint-20000"
+model_path = os.path.join(extraction_dir, "checkpoint-20000")
 model = GPT2LMHeadModel.from_pretrained(model_path)
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
